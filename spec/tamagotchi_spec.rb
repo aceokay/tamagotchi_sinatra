@@ -46,12 +46,30 @@ describe(Tamagotchi) do
     end
   end
 
+  describe('#feed') do
+    it('replinishes food level by 3 for each feeding') do
+      my_pet = Tamagotchi.new("Lil' Fattso")
+      my_pet.set_food_level(4)
+      my_pet.feed()
+      expect(my_pet.food_level()).to(eq(7))
+    end
+  end
+
   describe('#nap') do
     it('replenishes sleep level to 10 if napped at sleep level 4 or below') do
       my_pet = Tamagotchi.new("Lil' Sleepy")
       my_pet.set_sleep_level(4)
       my_pet.nap()
       expect(my_pet.sleep_level()).to(eq(10))
+    end
+  end
+
+  describe('#play') do
+    it('adds 2 play points for every time played with') do
+      my_pet = Tamagotchi.new("Lil' Happy")
+      my_pet.set_play_level(6)
+      my_pet.play()
+      expect(my_pet.play_level()).to(eq(8))
     end
   end
 end

@@ -39,6 +39,11 @@ class Tamagotchi
     @sleep = level
   end
 
+  define_method(:set_play_level) do |level|
+    time_passes
+    @play = level
+  end
+
   define_method(:timer) do
     @time
   end
@@ -73,10 +78,21 @@ class Tamagotchi
     end
   end
 
+  define_method(:feed) do
+    if @food < 7
+      @food += 3
+    end
+  end
+
   define_method(:nap) do
     if @sleep <= 4
       @sleep = 10
     end
   end
 
+  define_method(:play) do
+    if @play < 10
+      @play += 2
+    end
+  end
 end
