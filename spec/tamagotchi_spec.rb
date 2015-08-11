@@ -46,5 +46,12 @@ describe(Tamagotchi) do
     end
   end
 
-
+  describe('#nap') do
+    it('replenishes sleep level to 10 if napped at sleep level 4 or below') do
+      my_pet = Tamagotchi.new("Lil' Sleepy")
+      my_pet.set_sleep_level(4)
+      my_pet.nap()
+      expect(my_pet.sleep_level()).to(eq(10))
+    end
+  end
 end

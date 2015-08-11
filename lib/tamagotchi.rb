@@ -34,6 +34,11 @@ class Tamagotchi
     @food = level
   end
 
+  define_method(:set_sleep_level) do |level|
+    time_passes
+    @sleep = level
+  end
+
   define_method(:timer) do
     @time
   end
@@ -52,7 +57,6 @@ class Tamagotchi
 
   define_method(:time_passes) do
     hour = 3600
-
     time_array = [@feed_time,@sleep_time,@play_time]
 
     time_array.each() do |time|
@@ -67,13 +71,12 @@ class Tamagotchi
         end
       end
     end
-    # time_since_update = Time.now().to_i() - @time
-    #
-    # time_since_update./(hour).times() do
-    #   @food -= 1
-    #   @sleep -= 1
-    #   @play -= 1
-    #   @time = Time.now().to_i()
-    # end
   end
+
+  define_method(:nap) do
+    if @sleep <= 4
+      @sleep = 10
+    end
+  end
+
 end
