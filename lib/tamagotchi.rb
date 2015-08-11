@@ -79,18 +79,21 @@ class Tamagotchi
   end
 
   define_method(:feed) do
+    time_passes
     if @food < 7
       @food += 3
     end
   end
 
   define_method(:nap) do
+    time_passes
     if @sleep <= 4
       @sleep = 10
     end
   end
 
   define_method(:play) do
+    time_passes
     if @play < 10
       @play += 2
     end
