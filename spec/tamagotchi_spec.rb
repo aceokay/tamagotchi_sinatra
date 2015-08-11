@@ -29,10 +29,22 @@ describe(Tamagotchi) do
   describe('#time_passes') do
     it("decreases the amount of food the Tamagotchi has left by 1 if an hour has passed since last being fed") do
       my_pet = Tamagotchi.new("Lil' Smokey")
-      my_pet.time_passes()  #deciding how to make time pass can be tricky
+      my_pet.time_passes()
       expect(my_pet.food_level()).to(eq(10))
+    end
+
+    it("decreases the amount of sleep the Tamagotchi has left by 1 if an hour has passed since last nap") do
+      my_pet = Tamagotchi.new("Lil' Smokey")
+      my_pet.time_passes()
+      expect(my_pet.sleep_level()).to(eq(10))
+    end
+
+    it("decreases the amount of play the Tamagotchi has left by 1 if an hour has passed since last play session") do
+      my_pet = Tamagotchi.new("Lil' Smokey")
+      my_pet.time_passes()
+      expect(my_pet.play_level()).to(eq(10))
     end
   end
 
-  
+
 end

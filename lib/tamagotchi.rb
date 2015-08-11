@@ -4,7 +4,9 @@ class Tamagotchi
     @food = 10
     @sleep = 10
     @play = 10
-    @time = Time.now().to_i()
+    @feed_time = Time.now().to_i()
+    @sleep_time = Time.now().to_i()
+    @play_time = Time.now().to_i()
   end
 
   define_method(:name) do
@@ -50,13 +52,28 @@ class Tamagotchi
 
   define_method(:time_passes) do
     hour = 3600
-    time_since_update = Time.now().to_i() - @time
 
-    time_since_update./(hour).times() do
-      @food -= 1
-      @sleep -= 1
-      @play -= 1
-      @time = Time.now().to_i()
+    time_array = [@feed_time,@sleep_time,@play_time]
+
+    time_array.each() do |time|
+      time_since_update = Time.now().to_i() - time
+      time_since_update./(hour).times() do
+        if time == @feed_time
+          @food -= 1
+        elsif time == @sleep_time
+          @sleep -= 1
+        elsif time == @play_time
+          @play -= 1
+        end
+      end
     end
+    # time_since_update = Time.now().to_i() - @time
+    #
+    # time_since_update./(hour).times() do
+    #   @food -= 1
+    #   @sleep -= 1
+    #   @play -= 1
+    #   @time = Time.now().to_i()
+    # end
   end
 end
