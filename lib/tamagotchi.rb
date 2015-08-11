@@ -21,4 +21,16 @@ class Tamagotchi
   define_method(:play_level) do
     @play
   end
+
+  define_method(:set_food_level) do |level|
+    @food = level
+  end
+
+  define_method(:is_alive) do
+    if @food <= 0
+      false
+    else
+      true
+    end
+  end
 end

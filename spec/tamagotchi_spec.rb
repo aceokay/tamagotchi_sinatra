@@ -11,4 +11,12 @@ describe(Tamagotchi) do
       expect(my_pet.play_level()).to(eq(10))
     end
   end
+
+  describe('#is_alive') do
+    it("is alive if the food level is above 0") do
+      my_pet = Tamagotchi.new("Lil' Bow Wow")
+      my_pet.set_food_level(0)
+      expect(my_pet.is_alive()).to(eq(false))
+    end
+  end
 end
