@@ -1,9 +1,19 @@
 class Tamagotchi
+  @@all_tamagotchis = []
+
+  define_method(:save) do
+    @@all_tamagotchis.push(self)
+  end
+
+  define_singleton_method(:all) do
+    @@all_tamagotchis
+  end
+
   define_method(:initialize) do |name|
     @name = name
-    @food = 10
-    @sleep = 10
-    @play = 10
+    @food = 4
+    @sleep = 4
+    @play = 4
     @feed_time = Time.now().to_i()
     @sleep_time = Time.now().to_i()
     @play_time = Time.now().to_i()

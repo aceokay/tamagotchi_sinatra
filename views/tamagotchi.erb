@@ -1,0 +1,23 @@
+<h1><%= @name %></h1>
+<h4>Current Health Levels:</h4>
+
+  <h5>
+    Food Level: <%= @food_level %>
+    <form action='/success_feed' method='post'>
+      <button type="submit">Feed</button>
+    </form>
+  </h5>
+
+  <h5>
+    Sleep Level: <%= @sleep_level %>
+    <form action='/success_sleep' method='post'>
+      <button type="submit">Nap</button>
+    </form>
+  </h5>
+
+  <h5>
+    Play Level: <%= @play_level %>
+    <form action='/success_play' method='post'>
+      <button type="submit">Play</button>
+    </form>
+  </h5>
