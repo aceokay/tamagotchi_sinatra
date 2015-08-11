@@ -29,6 +29,10 @@ class Tamagotchi
   define_method(:is_alive) do
     if @food <= 0
       false
+    elsif @sleep <= 0
+      false
+    elsif @play <= 0
+      false
     else
       true
     end
